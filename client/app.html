@@ -1,7 +1,11 @@
-<ul>
-    <li *ngFor="#post of posts">
-        {{post.name}}
-        <p>{{post.description}}</p>
-        <p>{{post.location}}</p>
-    </li>
-</ul>
+<div>
+    <posts-form></posts-form>
+    <ul>
+        <li *ngFor="#post of posts">
+            {{post.name}}
+            <p>{{post.description}}</p>
+            <p>{{post.location}}</p>
+            <p><button (click)="removePost(post)">X</button></p>
+        </li>
+    </ul>
+</div>
