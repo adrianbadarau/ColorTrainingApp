@@ -1,6 +1,6 @@
 {
     "files": [
         "typings/angular2-meteor.d.ts",
-        "collections/posts.ts"
+        "typings/post.d.ts"
     ]
 }

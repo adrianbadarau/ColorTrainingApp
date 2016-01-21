@@ -21,7 +21,6 @@ export class PostsShow {
     constructor(params : RouteParams){
         var post_id = params.get('post_id');
         this.post = Posts.findOne(post_id);
-        console.log(this.post);
     }
 
     savePost(post){
