@@ -1,27 +1,34 @@
-import {Component, View, NgZone} from 'angular2/core';
+import {Component, View, NgZone,provide} from 'angular2/core';
 import {bootstrap} from 'angular2-meteor';
+import {ROUTER_PROVIDERS, ROUTER_DIRECTIVES, RouteConfig, APP_BASE_HREF} from 'angular2/router';
 
-import {Posts} from '../collections/posts'
-import {PostsForm} from '../client/posts/posts-form'
+import {PostsIndex} from "client/posts/index/posts-index";
+import {PostsShow} from "client/posts/show/posts-show"
 
 @Component({
     selector: 'app'
 })
 
 @View({
-    templateUrl: '/client/app.html',
-    directives: [PostsForm]
+    template: '<router-outlet></router-outlet>',
+    directives: [ROUTER_DIRECTIVES]
 })
 
-class ColorTraining {
-    posts: Mongo.Cursor<>;
-    constructor(){
-        this.posts = Posts.find();
+@RouteConfig([
+    {
+        path:'/',
+        as:'PostsIndex',
+        component:PostsIndex
+    },
+    {
+        path:'/posts/:post_id',
+        as: 'PostsShow',
+        component:PostsShow
     }
+])
 
-    removePost(post){
-        Posts.remove(post._id);
-    }
+class ColorTraining {
+
 }
 
-bootstrap(ColorTraining);
+bootstrap(ColorTraining, [ROUTER_PROVIDERS, provide(APP_BASE_HREF,{useValue:'/'})]);

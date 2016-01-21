@@ -4,14 +4,14 @@
 
 import {Component, View} from 'angular2/core';
 import {ControlGroup,FormBuilder,Validators, Control} from 'angular2/common'
-import {Posts} from "../../collections/posts";
+import {Posts} from "collections/posts";
 
 @Component({
     selector: 'posts-form'
 })
 
 @View({
-    templateUrl: "client/posts/posts-form.html"
+    templateUrl: "client/posts/forms/posts-form.html"
 })
 
 export class PostsForm {

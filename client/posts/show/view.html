@@ -1,0 +1,13 @@
+<form (submit)="savePost(post)">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="post.name">
+
+    <label>Description</label>
+    <input type="text" [(ngModel)]="post.description">
+
+    <label>Location</label>
+    <input type="text" [(ngModel)]="post.location">
+    {{post.location}}
+    <button type="submit">Save</button>
+    <button [routerLink]="['/PostsIndex']">Cancel</button>
+</form>
